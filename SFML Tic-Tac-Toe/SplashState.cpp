@@ -32,7 +32,7 @@ namespace Aytuk
 
 	void SplashState::Update(float dt)
 	{
-		if (this->_clock.getElapsedTime().asSeconds() > 3)
+		if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
 		{
 			// Switch to the Main Menu
 			std::cout << "Go to Main Menu" << std::endl;
