@@ -7,7 +7,12 @@ namespace Aytuk
 {
 	SplashState::SplashState(GameDataRef data) : _data(data)
 	{
-		this->_data->assets.LoadFont("Splash State Background", SPLASH_SCENE_BACKGROUND_FILEPATH);
+		
+	}
+
+	void SplashState::Init()
+	{
+		this->_data->assets.LoadTexture("Splash State Background", SPLASH_SCENE_BACKGROUND_FILEPATH);
 
 		_background.setTexture(this->_data->assets.GetTexture("Splash State Background"));
 	}
@@ -27,7 +32,7 @@ namespace Aytuk
 
 	void SplashState::Update(float dt)
 	{
-		if (this->_clock.getElapsedTime().asSeconds()>SPLASH_STATE_SHOW_TIME)
+		if (this->_clock.getElapsedTime().asSeconds() > 3)
 		{
 			// Switch to the Main Menu
 			std::cout << "Go to Main Menu" << std::endl;
