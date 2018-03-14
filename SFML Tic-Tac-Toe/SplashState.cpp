@@ -2,6 +2,7 @@
 #include <iostream>
 #include "SplashState.hpp"
 #include "DEFINITIONS.hpp"
+#include "MainMenuState.hpp"
 
 namespace Aytuk
 {
@@ -35,7 +36,7 @@ namespace Aytuk
 		if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
 		{
 			// Switch to the Main Menu
-			std::cout << "Go to Main Menu" << std::endl;
+			this->_data->machine.AddState(StateRef(new MainMenuState(_data)), true);
 		}
 	}
 
