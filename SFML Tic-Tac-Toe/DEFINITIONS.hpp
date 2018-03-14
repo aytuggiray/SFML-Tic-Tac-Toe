@@ -14,7 +14,7 @@
 
 #define MAIN_MENU_PLAY_BUTTON_OUTER "Resources/res/Play Button Outer.png"
 
-#define PAUSE_BUTTON "Resource/res/Pause Button.png"
+#define PAUSE_BUTTON "Resources/res/Pause Button.png"
 
 #define X_PIECE_FILEPATH "Resources/res/X.png"
 #define O_PIECE_FILEPATH "Resources/res/O.png"
