@@ -2,6 +2,7 @@
 #include <iostream>
 #include "GameState.hpp"
 #include "PauseState.hpp"
+#include "GameOverState.hpp"
 #include "DEFINITIONS.hpp"
 
 namespace Aytuk
@@ -37,7 +38,9 @@ namespace Aytuk
 
 			if (this->_data->input.IsSpriteClicked(this->_pauseButton, sf::Mouse::Left, this->_data->window))
 			{
-				this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
+				//this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
+
+				this->_data->machine.AddState(StateRef(new GameOverState(_data)), true);
 			}
 		}
 	}

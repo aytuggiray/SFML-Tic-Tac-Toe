@@ -15,6 +15,7 @@
 #define MAIN_MENU_PLAY_BUTTON "Resources/res/Play Button.png"
 #define RESUME_BUTTON "Resources/res/Resume Button.png"
 #define HOME_BUTTON "Resources/res/Home Button.png"
+#define RETRY_BUTTON "Resources/res/Retry Button.png"
 
 #define MAIN_MENU_PLAY_BUTTON_OUTER "Resources/res/Play Button Outer.png"
 
