@@ -91,7 +91,7 @@ namespace Aytuk
 			for (int y = 0; y < 3; y++)
 			{
 				_gridPieces[x][y].setTexture(this->_data->assets.GetTexture("X Piece"));
-				_gridPieces[x][y].setPosition((_gridSprite.getPosition().x + (tempSpriteSize.x * x) - 7), _gridSprite.getPosition().y + (tempSpriteSize.y * y) - 7);
+				_gridPieces[x][y].setPosition((_gridSprite.getPosition().x + (tempSpriteSize.x * x) - 7), (_gridSprite.getPosition().y + (tempSpriteSize.y * y) - 7));
 				_gridPieces[x][y].setColor(sf::Color(255, 255, 255, 255));
 			}
 		}
