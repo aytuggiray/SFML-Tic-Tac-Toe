@@ -20,6 +20,8 @@ namespace Aytuk
 	private:
 		void InitGridPieces();
 
+		void CheckAndPlacePiece();
+
 		GameDataRef _data;
 
 		sf::Sprite _background;

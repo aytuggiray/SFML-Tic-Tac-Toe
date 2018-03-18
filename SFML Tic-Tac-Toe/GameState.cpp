@@ -55,6 +55,10 @@ namespace Aytuk
 			{
 				this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
 			}
+			else if (this->_data->input.IsSpriteClicked(this->_gridSprite, sf::Mouse::Left, this->_data->window))
+			{
+				this->CheckAndPlacePiece();
+			}
 		}
 	}
 
@@ -92,8 +96,66 @@ namespace Aytuk
 			{
 				_gridPieces[x][y].setTexture(this->_data->assets.GetTexture("X Piece"));
 				_gridPieces[x][y].setPosition((_gridSprite.getPosition().x + (tempSpriteSize.x * x) - 7), (_gridSprite.getPosition().y + (tempSpriteSize.y * y) - 7));
-				_gridPieces[x][y].setColor(sf::Color(255, 255, 255, 255));
+				_gridPieces[x][y].setColor(sf::Color(255, 255, 255, 0));
 			}
 		}
+	}
+
+	void GameState::CheckAndPlacePiece()
+	{
+		sf::Vector2i touchPoint = this->_data->input.GetMousePosition(this->_data->window);
+		sf::FloatRect gridSize = _gridSprite.getGlobalBounds();
+		sf::Vector2f gapOutsideOfGrid = sf::Vector2f((SCREEN_WIDTH-gridSize.width)/2, (SCREEN_HEIGHT-gridSize.height)/2);
+		sf::Vector2f gridLocalTouchPos = sf::Vector2f(touchPoint.x - gapOutsideOfGrid.x, touchPoint.y - gapOutsideOfGrid.y);
+		sf::Vector2f gridSectionSize = sf::Vector2f(gridSize.width / 3, gridSize.height / 3);
+
+		int column, row;
+
+		if (gridLocalTouchPos.x < gridSectionSize.x)
+		{
+			column = 1;
+		}
+		else if (gridLocalTouchPos.x < gridSectionSize.x * 2)
+		{
+			column = 2;
+		}
+		else if (gridLocalTouchPos.x < gridSize.width)
+		{
+			column = 3;
+		}
+
+		if (gridLocalTouchPos.y < gridSectionSize.y)
+		{
+			row = 1;
+		}
+		else if (gridLocalTouchPos.y < gridSectionSize.y * 2)
+		{
+			row = 2;
+		}
+		else if (gridLocalTouchPos.y < gridSize.height)
+		{
+			row = 3;
+		}
+
+		if (gridArray[column-1][row-1] == EMPTY_PIECE )
+		{
+			gridArray[column - 1][row - 1] == turn;
+
+			if (PLAYER_PIECE == turn)
+			{
+				_gridPieces[column - 1][row - 1].setTexture(this->_data->assets.GetTexture("X Piece"));
+				
+				turn = AI_PIECE;
+			}
+			else if (AI_PIECE == turn)
+			{
+				_gridPieces[column - 1][row - 1].setTexture(this->_data->assets.GetTexture("O Piece"));
+
+				turn = PLAYER_PIECE;
+			}
+
+			_gridPieces[column - 1][row - 1].setColor(sf::Color(255, 255, 255, 255));
+		}
+		
 	}
 }
