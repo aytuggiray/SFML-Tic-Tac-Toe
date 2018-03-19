@@ -88,7 +88,7 @@ namespace Aytuk
 		{
 			if (EMPTY_PIECE == (*gridArray)[X][Y])
 			{
-				(*gridArray[X][Y]) = AI_PIECE;
+				(*gridArray)[X][Y] = AI_PIECE;
 				gridPieces[X][Y].setTexture(this->_data->assets.GetTexture("O Piece"));
 
 				gridPieces[X][Y].setColor(sf::Color(255, 255, 255, 255));

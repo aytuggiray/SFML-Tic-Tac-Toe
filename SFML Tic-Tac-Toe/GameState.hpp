@@ -24,8 +24,8 @@ namespace Aytuk
 
 		void CheckAndPlacePiece();
 
-		void CheckPlayerHasWon(int turn);
-		void Check3PiecesForMatch(int x1, int y1, int x2, int y2, int x3, int y3, int pieceToCheck);
+		void CheckHasPlayerWon(int turn);
+		void GameState::Check3PiecesForMatch(int x1, int y1, int x2, int y2, int x3, int y3, int pieceToCheck);
 
 		GameDataRef _data;
 

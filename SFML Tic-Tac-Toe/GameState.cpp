@@ -77,7 +77,7 @@ namespace Aytuk
 
 	void GameState::Draw(float dt)
 	{
-		this->_data->window.clear();
+		this->_data->window.clear(sf::Color::Red);
 
 		this->_data->window.draw(this->_background);
 		this->_data->window.draw(this->_pauseButton);
@@ -103,7 +103,7 @@ namespace Aytuk
 			for (int y = 0; y < 3; y++)
 			{
 				_gridPieces[x][y].setTexture(this->_data->assets.GetTexture("X Piece"));
-				_gridPieces[x][y].setPosition((_gridSprite.getPosition().x + (tempSpriteSize.x * x) - 7), (_gridSprite.getPosition().y + (tempSpriteSize.y * y) - 7));
+				_gridPieces[x][y].setPosition(_gridSprite.getPosition().x + (tempSpriteSize.x * x) - 7, _gridSprite.getPosition().y + (tempSpriteSize.y * y) - 7);
 				_gridPieces[x][y].setColor(sf::Color(255, 255, 255, 0));
 			}
 		}
@@ -153,7 +153,7 @@ namespace Aytuk
 			{
 				_gridPieces[column - 1][row - 1].setTexture(this->_data->assets.GetTexture("X Piece"));
 
-				this->CheckPlayerHasWon(turn);
+				this->CheckHasPlayerWon(turn);
 			}
 
 			_gridPieces[column - 1][row - 1].setColor(sf::Color(255, 255, 255, 255));
@@ -161,7 +161,7 @@ namespace Aytuk
 		
 	}
 
-	void GameState::CheckPlayerHasWon(int player)
+	void GameState::CheckHasPlayerWon(int player)
 	{
 		Check3PiecesForMatch(0, 0, 1, 0, 2, 0, player);
 		Check3PiecesForMatch(0, 1, 1, 1, 2, 1, player);
