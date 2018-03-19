@@ -42,5 +42,7 @@ namespace Aytuk
 		int gameState;
 
 		AI *ai;
+
+		sf::Clock _clock;
 	};
 }

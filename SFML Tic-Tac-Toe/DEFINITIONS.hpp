@@ -3,7 +3,7 @@
 #define SCREEN_WIDTH 768
 #define SCREEN_HEIGHT 1024
 
-#define SPLASH_STATE_SHOW_TIME 3
+#define SPLASH_STATE_SHOW_TIME 1.5
 
 #define SPLASH_SCENE_BACKGROUND_FILEPATH "Resources/res/Splash Background.png"
 #define MAIN_MENU_BACKGROUND_FILEPATH "Resources/res/Main Menu Background.png"
@@ -41,3 +41,5 @@
 #define STATE_PLACING_PIECE 94
 #define STATE_AI_PLAYING 93
 #define STATE_DRAW 92
+
+#define TIME_BEFORE_SHOWING_GAME_OVER 3

@@ -72,7 +72,13 @@ namespace Aytuk
 
 	void GameState::Update(float dt)
 	{
-
+		if (STATE_DRAW == gameState || STATE_LOSE == gameState || STATE_WON == gameState)
+		{
+			if (this->_clock.getElapsedTime().asSeconds() > TIME_BEFORE_SHOWING_GAME_OVER)
+			{
+				this->_data->machine.AddState(StateRef(new GameOverState(_data)), true);
+			}
+		}
 	}
 
 	void GameState::Draw(float dt)
@@ -208,7 +214,7 @@ namespace Aytuk
 
 		if (STATE_DRAW == gameState || STATE_LOSE == gameState || STATE_WON == gameState)
 		{
-			//Show game over
+			this->_clock.restart();
 		}
 
 		std::cout << gameState << std::endl;
