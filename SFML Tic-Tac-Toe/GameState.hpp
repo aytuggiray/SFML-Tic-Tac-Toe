@@ -4,6 +4,8 @@
 #include "State.hpp"
 #include "Game.hpp"
 
+#include "AI.hpp"
+
 namespace Aytuk
 {
 	class GameState : public State
@@ -34,9 +36,11 @@ namespace Aytuk
 		sf::Sprite _gridSprite;
 
 		sf::Sprite _gridPieces[3][3];
-		int gridArray[3][3];
+		int _gridArray[3][3];
 
 		int turn;
 		int gameState;
+
+		AI *ai;
 	};
 }
